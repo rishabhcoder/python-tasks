@@ -1,0 +1,76 @@
+Image Upload and Classification with Streamlit
+
+Description
+This Streamlit app allows users to upload an image and classify it using a pre-trained machine learning model hosted on Hugging Face. The model used in this app is ResNet-18 from Microsoft, which classifies the uploaded image into one of the categories it has been trained on.
+
+The app:
+
+Accepts images in jpg, jpeg, and png formats.
+Uploads the image and sends it to a model hosted on Hugging Face for classification.
+Displays the classification results (predicted class and confidence score).
+Requirements
+Before running the app, you need to ensure that you have the following installed:
+
+Python 3.x
+Streamlit (pip install streamlit)
+Requests library (pip install requests)
+Pillow (pip install pillow)
+You also need to sign up for a Hugging Face account and generate an API token if you don't have one yet.
+
+Setup
+1. Clone the repository or download the script.
+To get started, you can either clone the repository (if available) or copy the code into a Python file (e.g., app.py).
+
+2. Install dependencies
+Run the following command to install the required dependencies:
+
+bash
+Copy
+Edit
+pip install streamlit requests pillow
+3. API Token for Hugging Face
+You will need a Hugging Face API token for the model inference. To generate it:
+
+Go to Hugging Face.
+Create an account (if you don’t have one).
+Navigate to your account settings and generate an API token.
+Replace the value of 'Authorization': 'Bearer YOUR_API_TOKEN' in the script with your token.
+
+4. Running the Streamlit App
+Once you've installed the dependencies and set up the API token, you can run the Streamlit app:
+
+bash
+Copy
+Edit
+streamlit run app.py
+This will launch the app in your default web browser. You can now upload an image and see the classification results.
+
+How It Works
+1. Upload an Image
+The app allows users to upload an image in jpg, jpeg, or png format using the file uploader in Streamlit.
+
+2. Classification Process
+Once the image is uploaded, it is sent as an octet stream to the Hugging Face model. The model, in this case, is microsoft/resnet-18, a pre-trained ResNet-18 model for image classification.
+
+3. Display the Results
+The app displays the predicted class and the confidence score returned by the model. If the response from the model is not as expected, the app will display an error.
+
+4. Error Handling
+The app includes error handling to catch any issues during the API call. If the image is not successfully classified or if there are issues with the API request, appropriate error messages are displayed.
+
+Troubleshooting
+400 Bad Request: Ensure that the image is uploaded correctly and is in one of the supported formats (jpg, jpeg, png).
+API Errors: If the API token is incorrect or expired, you will receive an error message. Ensure that the token is valid and has the correct permissions.
+Unexpected Response Structure: If the model returns an unexpected result, the app will show the raw response for debugging.
+Example Output
+After classifying an image, the app might show the following result:
+
+makefile
+Copy
+Edit
+Prediction: Dog
+Confidence: 95%
+This means that the model predicted the image as a dog with 95% confidence.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
